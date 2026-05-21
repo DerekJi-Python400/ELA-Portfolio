@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derek Ji — ELA Portfolio</title>
+  <meta name="description" content="Derek Ji's ELA Portfolio — open in any browser for classroom presentation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Platform toolbar (like Canva top bar) -->
+  <header class="platform-bar" id="platformBar">
+    <div class="bar-left">
+      <span class="logo-bubble" aria-hidden="true">🏐</span>
+      <div>
+        <p class="logo-title">Derek Ji · ELA Portfolio</p>
+        <p class="logo-sub">2025–2026 · Open &amp; present anywhere</p>
+      </div>
+    </div>
+    <div class="bar-actions">
+      <button type="button" class="btn btn-ghost" id="helpBtn" title="How to present">?</button>
+      <button type="button" class="btn btn-primary" id="presentBtn">
+        <span aria-hidden="true">▶</span> Present
+      </button>
+      <button type="button" class="btn btn-secondary" id="fullscreenBtn" title="Fullscreen for Promethean board">
+        <span aria-hidden="true">⛶</span> Fullscreen
+      </button>
+    </div>
+  </header>
+
+  <!-- Help panel for teachers -->
+  <dialog class="help-dialog" id="helpDialog">
+    <div class="help-inner">
+      <h2>How to present (for teachers)</h2>
+      <ol>
+        <li><strong>Open</strong> this file in Chrome, Edge, or Safari — double-click <code>index.html</code> or open the link your student shares.</li>
+        <li>Click <strong>Present</strong> or <strong>Fullscreen</strong> before showing on the Promethean board.</li>
+        <li>Use <strong>arrow keys</strong>, the big buttons, or <strong>tap the screen</strong> (left = back, right = next).</li>
+        <li>Click any <strong>slide thumbnail</strong> below to jump to that slide.</li>
+        <li>Press <strong>Esc</strong> to exit fullscreen.</li>
+      </ol>
+      <button type="button" class="btn btn-primary" id="closeHelp">Got it!</button>
+    </div>
+  </dialog>
+
+  <div class="platform-layout" id="platformLayout">
+    <!-- Slide thumbnails strip (Canva-style) -->
+    <aside class="slide-strip" id="slideStrip" aria-label="All slides">
+      <button type="button" class="thumb active" data-goto="0">
+        <span class="thumb-num">1</span>
+        <span class="thumb-label">About Me</span>
+      </button>
+      <button type="button" class="thumb" data-goto="1">
+        <span class="thumb-num">2</span>
+        <span class="thumb-label">Reading Growth</span>
+      </button>
+      <button type="button" class="thumb" data-goto="2">
+        <span class="thumb-num">3</span>
+        <span class="thumb-label">Top Texts</span>
+      </button>
+    </aside>
+
+    <!-- Main presentation canvas -->
+    <div class="canvas-wrap">
+      <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"></div>
+
+      <main class="presentation" id="presentation">
+
+        <!-- Slide 1 -->
+        <section class="slide slide-welcome active" data-slide="0" data-label="About Me">
+          <div class="slide-deco deco-clouds" aria-hidden="true"></div>
+          <div class="mascot mascot-volleyball" aria-hidden="true">🏐</div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Slide 1 · Welcome</p>
+            <h1 class="hero-title">Hey! I'm Derek Ji</h1>
+            <p class="hero-sub">ELA Portfolio · George J. Ryan Middle School</p>
+
+            <div class="welcome-grid">
+              <article class="card intro-card">
+                <h2>📖 About Me</h2>
+                <p>Hello and welcome! My name is <strong>Derek Ji</strong>. I am 13 years old and a student at <strong>George J. Ryan Middle School</strong>, on my way to the <strong>High School for Mathematics, Science, and Engineering</strong>.</p>
+                <p>This portfolio showcases my work throughout this ELA school year. As a student, I am <em>hardworking</em>, love <em>math</em>, and am <em>curious</em>. I play <em>basketball</em> and <em>volleyball</em>, love eating, and love traveling — from Arizona’s deserts to Alaska’s mountains to China’s night markets and street food.</p>
+                <p>This year, my participation in many classes increased a lot, which helped me improve my communication skills. My goal is to show you my life, everything about me, and the experiences along the school year.</p>
+              </article>
+
+              <aside class="card facts-card">
+                <h2>⭐ Fun Facts</h2>
+                <ul class="facts-list">
+                  <li><span class="bubble-icon">🏐</span> Favorite sport: <strong>volleyball</strong></li>
+                  <li><span class="bubble-icon">🏀</span> Also play <strong>basketball</strong></li>
+                  <li><span class="bubble-icon">🌍</span> Love <strong>traveling</strong> &amp; trying new food</li>
+                  <li><span class="bubble-icon">📚</span> I love procrastinating homework <em>(honestly!)</em></li>
+                </ul>
+                <div class="tags">
+                  <span class="tag tag-green">Hardworking</span>
+                  <span class="tag tag-orange">Curious</span>
+                  <span class="tag tag-blue">Math</span>
+                  <span class="tag tag-pink">Travel</span>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2 -->
+        <section class="slide slide-growth" data-slide="1" data-label="Reading Growth">
+          <div class="slide-deco deco-blobs" aria-hidden="true"></div>
+          <div class="mascot mascot-book" aria-hidden="true">📚</div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Slide 2 · Reading</p>
+            <h2>Reading Comprehension Growth</h2>
+            <p class="growth-badge">Overall Growth: <strong>+6</strong> 🎉</p>
+
+            <div class="scores-compare">
+              <div class="scores-column">
+                <h3>📅 Beginning of Year</h3>
+                <ul class="score-list">
+                  <li><span>Overall</span><span class="pill">Mid 8th</span></li>
+                  <li><span>Vocabulary</span><span class="pill">Mid 8th</span></li>
+                  <li><span>Literary (Fiction)</span><span class="pill strong">9th Grade</span></li>
+                  <li><span>Informational (NF)</span><span class="pill weak">Early 8th</span></li>
+                </ul>
+              </div>
+
+              <div class="growth-arrow" aria-hidden="true">➡️</div>
+
+              <div class="scores-column end">
+                <h3>🏁 End of Year</h3>
+                <ul class="score-list">
+                  <li><span>Overall</span><span class="pill">Mid 8th</span></li>
+                  <li><span>Vocabulary</span><span class="pill">Mid 8th</span></li>
+                  <li><span>Literary (Fiction)</span><span class="pill improved">Late 8th</span></li>
+                  <li><span>Informational (NF)</span><span class="pill improved">Mid 8th</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="growth-bars">
+              <div class="bar-row">
+                <label>Informational (NF)</label>
+                <div class="bar-track"><div class="bar-fill nf" style="--end: 55%;"></div></div>
+                <span class="bar-delta">+2 levels</span>
+              </div>
+              <div class="bar-row">
+                <label>Literary (Fiction)</label>
+                <div class="bar-track"><div class="bar-fill lit" style="--end: 70%;"></div></div>
+                <span class="bar-delta">Refined</span>
+              </div>
+              <div class="bar-row">
+                <label>Vocabulary</label>
+                <div class="bar-track"><div class="bar-fill vocab" style="--end: 50%;"></div></div>
+                <span class="bar-delta">Steady</span>
+              </div>
+            </div>
+
+            <article class="card justification">
+              <h3>Justification of Growth</h3>
+              <p>I improved most in <strong>Comprehension Informational (Nonfiction)</strong> and <strong>Vocabulary</strong>. My strongest category is <strong>Comprehension Literary (Fiction)</strong>. One area I can still improve is <strong>Vocabulary</strong>. My overall growth is <strong>+6</strong>.</p>
+              <p>I feel I have grown as a reader mainly because of my comprehension skills and my ability to understand and answer questions according to the text.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Slide 3 -->
+        <section class="slide slide-texts" data-slide="2" data-label="Top Texts">
+          <div class="slide-deco deco-stars" aria-hidden="true"></div>
+          <div class="mascot mascot-star" aria-hidden="true">🌟</div>
+
+          <div class="slide-content">
+            <p class="eyebrow">Slide 3 · Books</p>
+            <h2>My Top Texts</h2>
+
+            <div class="books-grid">
+              <article class="book-card rank-1 featured">
+                <div class="rank-badge">#1 Favorite</div>
+                <div class="book-cover">
+                  <img src="https://prodimage.images-bn.com/pimages/9780142407332_p0_v4_s600x595.jpg" alt="The Outsiders book cover">
+                </div>
+                <div class="book-info">
+                  <h3>The Outsiders</h3>
+                  <p class="why">My <strong>favorite</strong> text — it shows what the real world is like and contrasts different characters and their personalities.</p>
+                  <p class="relate"><strong>Relate:</strong> It gives a different perspective on teenage life and how serious or disappointing some situations can be.</p>
+                  <p class="lesson"><strong>Lesson:</strong> Retain your innocence and don't judge others by stereotypes.</p>
+                </div>
+              </article>
+
+              <article class="book-card rank-3">
+                <div class="rank-badge">#3</div>
+                <div class="book-cover">
+                  <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1344271752i/894604.jpg" alt="100 Days and 99 Nights book cover">
+                </div>
+                <div class="book-info">
+                  <h3>100 Days and 99 Nights</h3>
+                  <p class="why">Focuses on family life, responsibility, and the emotional impact when a parent is absent.</p>
+                  <p class="relate"><strong>Relate:</strong> I could not relate — my family has always been with me and been super supportive.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Big presenter controls (touch-friendly for Promethean) -->
+      <nav class="presenter-nav" id="presenterNav" aria-label="Presentation controls">
+        <button type="button" class="nav-big prev" id="prevBtn" aria-label="Previous slide">
+          <span class="nav-label">Back</span>
+          <span class="nav-arrow">◀</span>
+        </button>
+        <div class="nav-center">
+          <span class="slide-counter" id="slideCounter">Slide 1 of 3</span>
+          <span class="slide-name" id="slideName">About Me</span>
+        </div>
+        <button type="button" class="nav-big next" id="nextBtn" aria-label="Next slide">
+          <span class="nav-label">Next</span>
+          <span class="nav-arrow">▶</span>
+        </button>
+      </nav>
+
+      <!-- Tap zones for board / touch (left back, right next) -->
+      <button type="button" class="tap-zone tap-prev" id="tapPrev" aria-label="Previous slide"></button>
+      <button type="button" class="tap-zone tap-next" id="tapNext" aria-label="Next slide"></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
